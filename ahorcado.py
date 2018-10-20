@@ -1,15 +1,8 @@
 import random
 
-palabras = ['casa', 'barco', 'culpa', 'dado', 'ejemplo']
-indice = random.randint(0, longitud(palabras) - 1)
-palabra = (palabras[indice])
-
 aciertos = []
 fallos = []
 
-aciertos = 
-
-letra_elegida = input("Elige una letra: ")
 
 def longitud(lista):
 	cantidad = 0
@@ -24,21 +17,42 @@ def contiene(lista, valor):
 	for elemento in lista:
 		if elemento == valor:
 			return True
-		else:
-			return False
+	return False
 
 
 def ahorcado(fallos):
-	if longitud(fallos) <= 7:
+	if longitud(fallos) < 7:
 		return False
 	else:
 		return True
 
 
-def actualizar(palabra, letra, aciertos, fallos):
-	if contiene(palabra, letra):	
-		return (aciertos + [letra], fallos)
-	else:
-		return (aciertos, fallos + [letra])
-	
+def ganador(aciertos):
+	for letra in palabra:
+		if not contiene(aciertos, letra):
+			return False
 
+	return True
+
+
+palabras = ['casa', 'barco', 'culpa', 'dado', 'ejemplo']
+indice = random.randint(0, longitud(palabras) - 1)
+palabra = (palabras[indice])
+
+
+while ahorcado(fallos) != True and ganador(aciertos) != True:
+	
+	letra = input("Elige una letra: ")
+
+	if contiene(palabra, letra):
+		aciertos = aciertos + [letra]
+	else:
+		fallos = fallos + [letra]
+
+	print("\n" "Letras erróneas:", ",".join(fallos), "\n" "Letras acertadas:", ",".join(aciertos))
+
+
+if ganador(aciertos) == True:
+	print("Has ganado, la palabra era " + palabra + "!")
+else:
+	print("Has perdido, la palabra era " + palabra + ".")
