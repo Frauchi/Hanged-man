@@ -13,10 +13,41 @@ def longitud(lista):
 	return cantidad
 
 
+def dibujo(fallos):
+	
+	longitud_fallos = longitud(fallos)
+
+	if longitud_fallos == 0:
+		print("______" "\n" "|" "\n" "|" "\n" "|" "\n" "|" "\n" "|" "\n" "-------" "\n" "|_____|")
+
+	elif longitud_fallos == 1:
+		print("______" "\n" "|    |" "\n" "|" "\n" "|" "\n" "|" "\n" "|" "\n" "-------" "\n" "|_____|")
+
+	elif longitud_fallos == 2:
+		print("______" "\n" "|    |" "\n" "|    O" "\n" "|" "\n" "|" "\n" "|" "\n" "-------" "\n" "|_____|")
+
+	elif longitud_fallos == 3:
+		print("______" "\n" "|    |" "\n" "|    O" "\n" "|    |" "\n" "|" "\n" "|" "\n" "-------" "\n" "|_____|")
+
+	elif longitud_fallos == 4:
+		print("______" "\n" "|    |" "\n" "|    O" "\n" "|   /|" "\n" "|" "\n" "|" "\n" "-------" "\n" "|_____|")
+
+	elif longitud_fallos == 5:
+		print("______" "\n" "|    |" "\n" "|    O" "\n" r'|   /|\ ' "\n" "|" "\n" "|" "\n" "-------" "\n" "|_____|")
+
+	elif longitud_fallos == 6:
+		print("______" "\n" "|    |" "\n" "|    O" "\n" r'|   /|\ ' "\n" "|   /" "\n" "|" "\n" "-------" "\n" "|_____|")
+
+	elif longitud_fallos == 7:
+		print("______" "\n" "|    |" "\n" "|    O" "\n" r'|   /|\ ' "\n" r'|   / \ ' "\n" "|" "\n" "-------" "\n" "|_____|")
+
+
+
 def contiene(lista, valor):
 	for elemento in lista:
 		if elemento == valor:
 			return True
+
 	return False
 
 
@@ -49,6 +80,8 @@ while ahorcado(fallos) != True and ganador(aciertos) != True:
 	else:
 		fallos = fallos + [letra]
 
+	dibujo(fallos)
+	
 	print("\n" "Letras erróneas:", ",".join(fallos), "\n" "Letras acertadas:", ",".join(aciertos))
 
 
