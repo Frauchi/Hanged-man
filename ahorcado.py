@@ -16,30 +16,34 @@ def longitud(lista):
 def dibujo(fallos):
 	
 	longitud_fallos = longitud(fallos)
+	parte_superior = "______" "\n" 
+	parte_inferior = "-------" "\n" "|_____|"
 
 	if longitud_fallos == 0:
-		print("______" "\n" "|" "\n" "|" "\n" "|" "\n" "|" "\n" "|" "\n" "-------" "\n" "|_____|")
+		centro ="|" "\n" "|" "\n" "|" "\n" "|" "\n" "|" "\n"
 
 	elif longitud_fallos == 1:
-		print("______" "\n" "|    |" "\n" "|" "\n" "|" "\n" "|" "\n" "|" "\n" "-------" "\n" "|_____|")
+		centro = "|    |" "\n" "|" "\n" "|" "\n" "|" "\n" "|" "\n"
 
 	elif longitud_fallos == 2:
-		print("______" "\n" "|    |" "\n" "|    O" "\n" "|" "\n" "|" "\n" "|" "\n" "-------" "\n" "|_____|")
+		centro = "|    |" "\n" "|    O" "\n" "|" "\n" "|" "\n" "|" "\n"
 
 	elif longitud_fallos == 3:
-		print("______" "\n" "|    |" "\n" "|    O" "\n" "|    |" "\n" "|" "\n" "|" "\n" "-------" "\n" "|_____|")
+		centro = "|    |" "\n" "|    O" "\n" "|    |" "\n" "|" "\n" "|" "\n"
 
 	elif longitud_fallos == 4:
-		print("______" "\n" "|    |" "\n" "|    O" "\n" "|   /|" "\n" "|" "\n" "|" "\n" "-------" "\n" "|_____|")
+		centro = "|    |" "\n" "|    O" "\n" "|   /|" "\n" "|" "\n" "|" "\n"
 
 	elif longitud_fallos == 5:
-		print("______" "\n" "|    |" "\n" "|    O" "\n" r'|   /|\ ' "\n" "|" "\n" "|" "\n" "-------" "\n" "|_____|")
+		centro = "|    |" "\n" "|    O" "\n" r'|   /|\ ' "\n" "|" "\n" "|" "\n"
 
 	elif longitud_fallos == 6:
-		print("______" "\n" "|    |" "\n" "|    O" "\n" r'|   /|\ ' "\n" "|   /" "\n" "|" "\n" "-------" "\n" "|_____|")
+		centro = "|    |" "\n" "|    O" "\n" r'|   /|\ ' "\n" "|   /" "\n" "|" "\n"
 
 	elif longitud_fallos == 7:
-		print("______" "\n" "|    |" "\n" "|    O" "\n" r'|   /|\ ' "\n" r'|   / \ ' "\n" "|" "\n" "-------" "\n" "|_____|")
+		centro = "|    |" "\n" "|    O" "\n" r'|   /|\ ' "\n" r'|   / \ ' "\n" "|" "\n"
+
+	print(parte_superior + centro + parte_inferior)
 
 
 
