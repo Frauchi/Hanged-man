@@ -16,32 +16,32 @@ def longitud(lista):
 def dibujo(fallos):
 	
 	longitud_fallos = longitud(fallos)
-	parte_superior = "______" "\n" 
-	parte_inferior = "-------" "\n" "|_____|"
+	parte_superior = " ______" "\n" 
+	parte_inferior = " -------" "\n" " |_____|"
 
 	if longitud_fallos == 0:
-		centro = "|" "\n" "|" "\n" "|" "\n" "|" "\n" "|" "\n"
+		centro = " |" "\n" " |" "\n" " |" "\n" " |" "\n" " |" "\n"
 
 	elif longitud_fallos == 1:
-		centro = "|    |" "\n" "|" "\n" "|" "\n" "|" "\n" "|" "\n"
+		centro = " |    |" "\n" " |" "\n" " |" "\n" " |" "\n" " |" "\n"
 
 	elif longitud_fallos == 2:
-		centro = "|    |" "\n" "|    O" "\n" "|" "\n" "|" "\n" "|" "\n"
+		centro = " |    |" "\n" "|    O" "\n"  " |" "\n" " |" "\n" " |" "\n"
 
 	elif longitud_fallos == 3:
-		centro = "|    |" "\n" "|    O" "\n" "|    |" "\n" "|" "\n" "|" "\n"
+		centro = " |    |" "\n" " |    O" "\n" " |    |" "\n" " |" "\n" " |" "\n"
 
 	elif longitud_fallos == 4:
-		centro = "|    |" "\n" "|    O" "\n" "|   /|" "\n" "|" "\n" "|" "\n"
+		centro = " |    |" "\n" " |    O" "\n" " |   /|" "\n" " |" "\n" " |" "\n"
 
 	elif longitud_fallos == 5:
-		centro = "|    |" "\n" "|    O" "\n" r'|   /|\ ' "\n" "|" "\n" "|" "\n"
+		centro = " |    |" "\n" " |    O" "\n" r' |   /|\ ' "\n" " |" "\n" " |" "\n"
 
 	elif longitud_fallos == 6:
-		centro = "|    |" "\n" "|    O" "\n" r'|   /|\ ' "\n" "|   /" "\n" "|" "\n"
+		centro = " |    |" "\n" " |    O" "\n" r' |   /|\ ' "\n" " |   /" "\n" " |" "\n"
 
 	elif longitud_fallos == 7:
-		centro = "|    |" "\n" "|    O" "\n" r'|   /|\ ' "\n" r'|   / \ ' "\n" "|" "\n"
+		centro = " |    |" "\n" " |    O" "\n" r' |   /|\ ' "\n" r' |   / \ ' "\n" " |" "\n"
 
 	print(parte_superior + centro + parte_inferior)
 
@@ -99,11 +99,12 @@ while ahorcado(fallos) != True and ganador(aciertos) != True:
 	else:
 		fallos = fallos + [letra]
 
-	palabra_incompleta = sustituir(palabra, palabra_incompleta, letra)
-
 	dibujo(fallos)
+
+	palabra_incompleta = sustituir(palabra, palabra_incompleta, letra)
 	
-	print("\n", "Letras erróneas:", ",".join(fallos), "\n", palabra_incompleta, "\n")
+	print("\n", " ".join(palabra_incompleta), "\n", "\n", "Errores:", ",".join(fallos), "\n")
+
 
 
 if ganador(aciertos) == True:
