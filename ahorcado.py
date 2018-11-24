@@ -20,7 +20,7 @@ def dibujo(fallos):
 	parte_inferior = "-------" "\n" "|_____|"
 
 	if longitud_fallos == 0:
-		centro ="|" "\n" "|" "\n" "|" "\n" "|" "\n" "|" "\n"
+		centro = "|" "\n" "|" "\n" "|" "\n" "|" "\n" "|" "\n"
 
 	elif longitud_fallos == 1:
 		centro = "|    |" "\n" "|" "\n" "|" "\n" "|" "\n" "|" "\n"
@@ -70,9 +70,24 @@ def ganador(aciertos):
 	return True
 
 
+def sustituir(palabra, palabra_incompleta, valor):
+	nueva_incompleta = ""
+
+	for letra,letra_incompleta in zip(palabra, palabra_incompleta):
+		if valor == letra:
+			nueva_incompleta = nueva_incompleta + valor
+		else:
+			nueva_incompleta = nueva_incompleta + letra_incompleta
+
+	return nueva_incompleta
+
+
 palabras = ['casa', 'barco', 'culpa', 'dado', 'ejemplo']
 indice = random.randint(0, longitud(palabras) - 1)
 palabra = (palabras[indice])
+
+
+palabra_incompleta = "_" * longitud(palabra)
 
 
 while ahorcado(fallos) != True and ganador(aciertos) != True:
@@ -84,9 +99,11 @@ while ahorcado(fallos) != True and ganador(aciertos) != True:
 	else:
 		fallos = fallos + [letra]
 
+	palabra_incompleta = sustituir(palabra, palabra_incompleta, letra)
+
 	dibujo(fallos)
 	
-	print("\n" "Letras erróneas:", ",".join(fallos), "\n" "Letras acertadas:", ",".join(aciertos))
+	print("\n", "Letras erróneas:", ",".join(fallos), "\n", palabra_incompleta, "\n")
 
 
 if ganador(aciertos) == True:
