@@ -1,2 +1,2 @@
 # Hanged-man
-A beginner's hanged-man game implementation in Python 3
+A beginner's hangman-game implementation in Python 3
